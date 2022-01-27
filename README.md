@@ -15,3 +15,4 @@ This demo API Proxy can be used for a overview demo of Apigee X. It uses an open
 - API product
 - Developer
 - App with clientid
+- Target Server with URL: opendata.rdw.nl port 443
