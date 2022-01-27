@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="Clean-Request">
+    <DisplayName>Clean Request</DisplayName>
+    <Properties/>
+    <Remove>
+        <QueryParams>
+            <QueryParam name="apikey"/>
+            <QueryParam name="weight"/>
+            <QueryParam name="plate"/>
+        </QueryParams>
+    </Remove>
+    <Add>
+        <QueryParams>
+            <QueryParam name="kenteken">{plate}</QueryParam>
+        </QueryParams>
+    </Add>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

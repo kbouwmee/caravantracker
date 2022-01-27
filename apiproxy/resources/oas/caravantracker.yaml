@@ -1,0 +1,46 @@
+---
+openapi: "3.0.0"
+info:
+  description: "API for checking max allowed weight of trailer or caravan. Build for Dutch license plates."
+  version: "1.0.0"
+  title: "caravantracker"
+paths:
+  /:
+    get:
+      security:
+        - ApiKeyAuth: []    
+      summary: "check max weight for car"
+      operationId: "View a personalized greeting"
+      description: "View a personalized greeting for the specified or guest user."
+      parameters:
+      - name: "plate"
+        in: "query"
+        description: "license plate"
+        required: true
+        schema:
+          type: "string"
+      - name: "weight"
+        in: "query"
+        description: "weight of caravan"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "Success"
+servers:
+- url: "https://apininja.nl/v1/mock"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: "apiKey"
+      description: "API key to autorize requests"
+      in: "query"
+      name: "apikey"
+  schemas:
+    request-body:
+      properties:
+        replace-me:
+          type: "object"
+          description: "Replace with request payload in application/json, application/x-www-form-urlencoded,\
+            \ or application/xml format."

@@ -1,0 +1,35 @@
+<APIProxy revision="19" name="caravantracker">
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <CreatedAt>1638281731354</CreatedAt>
+    <LastModifiedAt>1638281731354</LastModifiedAt>
+    <BasePaths>/v1/caravantracker</BasePaths>
+    <Policies>
+        <Policy>Spike-Arrest-1</Policy>
+        <Policy>Extract-Input</Policy>
+        <Policy>Validate-Input</Policy>
+        <Policy>Raise-Input-Error</Policy>
+        <Policy>Clean-Request</Policy>
+        <Policy>Clean-Response</Policy>
+        <Policy>Not-Found</Policy>
+        <Policy>Remove-etag</Policy>
+        <Policy>Data-Capture</Policy>
+        <Policy>Verify-API-Key-1</Policy>
+        <Policy>Validation</Policy>
+        <Policy>CORS</Policy>
+        <Policy>Raise-429</Policy>
+        <Policy>InjectionProtection</Policy>
+        <Policy>Raise-Injection</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://Validate-Input.js</Resource>
+        <Resource>jsc://Clean-Response.js</Resource>
+        <Resource>oas://caravantracker.yaml</Resource>
+    </Resources>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

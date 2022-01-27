@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables continueOnError="false" enabled="true" name="Extract-Input">
+    <DisplayName>Extract Input</DisplayName>
+    <QueryParam name="weight">
+        <Pattern ignoreCase="true">{weight}</Pattern>
+    </QueryParam>
+    <QueryParam name="plate">
+        <Pattern ignoreCase="true">{plate}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

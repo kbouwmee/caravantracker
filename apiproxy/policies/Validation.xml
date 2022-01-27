@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OASValidation continueOnError="true" enabled="true" name="Validation">
+    <DisplayName>Validation</DisplayName>
+    <Properties/>
+    <Source>request</Source>
+    <OASResource>oas://caravantracker.yaml</OASResource>
+</OASValidation>

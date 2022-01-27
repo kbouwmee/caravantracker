@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RegularExpressionProtection continueOnError="true" enabled="true" name="InjectionProtection">
+    <DisplayName>InjectionProtection</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <QueryParam name="weight">
+        <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+    </QueryParam>
+    <QueryParam name="plate">
+        <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+    </QueryParam>
+    <Source>request</Source>
+</RegularExpressionProtection>

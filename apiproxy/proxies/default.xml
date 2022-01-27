@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Flows>
+        <Flow name="OptionsPreFlight">
+            <Request>
+                <Step>
+                    <Name>CORS</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+        </Flow>
+    </Flows>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>Spike-Arrest-1</Name>
+            </Step>
+            <Step>
+                <Name>Raise-429</Name>
+                <Condition>ratelimit.Spike-Arrest-1.failed = true</Condition>
+            </Step>
+            <Step>
+                <Name>Verify-API-Key-1</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <Name>Validation</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <Name>Extract-Input</Name>
+                <Condition>OASValidation.Validation.failed = false AND request.verb != "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <Name>Validate-Input</Name>
+                <Condition>OASValidation.Validation.failed = false AND request.verb != "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <Name>Raise-Input-Error</Name>
+                <Condition>(OASValidation.Validation.failed = true OR input.error = true) AND request.verb != "OPTIONS"</Condition>
+            </Step>
+            <Step>
+                <Name>InjectionProtection</Name>
+            </Step>
+            <Step>
+                <Name>Raise-Injection</Name>
+                <Condition>regularexpressionprotection.InjectionProtection.failed = true</Condition>
+            </Step>
+            <Step>
+                <Name>Clean-Request</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/caravantracker</BasePath>
+    </HTTPProxyConnection>
+    <RouteRule name="NoRoute">
+        <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

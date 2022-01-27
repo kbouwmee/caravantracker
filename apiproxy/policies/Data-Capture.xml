@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DataCapture name="Data-Capture" continueOnError="false" enabled="true">
+    <DisplayName>Data Capture</DisplayName>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Capture>
+        <Collect ref="car_brand" default="na"/>
+        <DataCollector>dc_car_model</DataCollector>
+    </Capture>
+</DataCapture>

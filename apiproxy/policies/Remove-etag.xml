@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="Remove-etag">
+    <DisplayName>Remove etag</DisplayName>
+    <Properties/>
+    <Remove>
+        <Headers>
+            <Header name="ETag"/>
+            <Header name="Last-Modified"/>
+            <Header name="X-Socrata-Region"/>
+            <Header name="X-Socrata-RequestId"/>
+            <Header name="X-SODA2-Data-Out-Of-Date"/>
+            <Header name="X-SODA2-Fields"/>
+            <Header name="X-SODA2-Secondary-Last-Modified"/>
+            <Header name="X-SODA2-Truth-Last-Modified"/>
+            <Header name="X-SODA2-Types"/>
+            <Header name="Server"/>
+            <Header name="Age"/>
+        </Headers>
+    </Remove>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

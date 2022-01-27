@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="Raise-Injection">
+    <DisplayName>Raise Injection</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Access-Control-Allow-Origin">{request.header.origin}</Header>
+                <Header name="Access-Control-Allow-Headers">origin, x-requested-with, accept, content-type</Header>
+                <Header name="Access-Control-Max-Age">3628800</Header>
+                <Header name="Access-Control-Allow-Methods">GET, PUT, POST, DELETE</Header>
+            </Headers>
+            <Payload contentType="application/json">{"error": "true", "cause": "Please do not inject malicious code!!"}</Payload>
+            <StatusCode>400</StatusCode>
+            <ReasonPhrase>Bad Request</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
